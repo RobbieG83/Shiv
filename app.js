@@ -12,7 +12,7 @@ document.getElementById('lookupForm').addEventListener('submit', function(event)
             const csvData = e.target.result;
             console.log('CSV Data:', csvData);
 
-            const rows = csvData.split('\n').map(row => row.split(','));
+            const rows = csvData.split('\n').map(row => row.split(',').map(cell => cell.trim()));
             console.log('Parsed Rows:', rows);
 
             const headers = rows[0];
