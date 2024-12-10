@@ -19,7 +19,7 @@ document.getElementById('lookupForm').addEventListener('submit', function(event)
             const resultRows = [headers];
 
             rows.slice(1).forEach(row => {
-                if (values.includes(row[0])) {
+                if (row.some(cell => values.includes(cell))) {
                     resultRows.push(row);
                 }
             });
