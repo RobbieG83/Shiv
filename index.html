@@ -9,16 +9,18 @@
             font-family: Arial, sans-serif;
             margin: 20px;
         }
-        input, button {
+        textarea, input, button {
             margin: 10px 0;
+            width: 100%;
+            max-width: 400px;
         }
     </style>
 </head>
 <body>
     <h1>CSV Lookup App</h1>
     <form id="lookupForm">
-        <label for="values">Enter values (comma separated):</label><br>
-        <input type="text" id="values" name="values" required><br>
+        <label for="values">Enter values (one per line):</label><br>
+        <textarea id="values" name="values" rows="10" required></textarea><br>
         <label for="csvFile">Upload CSV file:</label><br>
         <input type="file" id="csvFile" name="csvFile" accept=".csv" required><br>
         <button type="submit">Lookup</button>
