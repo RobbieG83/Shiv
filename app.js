@@ -2,13 +2,18 @@ document.getElementById('lookupForm').addEventListener('submit', function(event)
     event.preventDefault();
 
     const values = document.getElementById('values').value.split('\n').map(v => v.trim()).filter(v => v);
+    console.log('Input values:', values);
+
     const file = document.getElementById('csvFile').files[0];
 
     if (file) {
         const reader = new FileReader();
         reader.onload = function(e) {
             const csvData = e.target.result;
+            console.log('CSV Data:', csvData);
+
             const rows = csvData.split('\n').map(row => row.split(','));
+            console.log('Parsed Rows:', rows);
 
             const headers = rows[0];
             const resultRows = [headers];
@@ -18,6 +23,8 @@ document.getElementById('lookupForm').addEventListener('submit', function(event)
                     resultRows.push(row);
                 }
             });
+
+            console.log('Result Rows:', resultRows);
 
             const resultCsv = resultRows.map(row => row.join(',')).join('\n');
             downloadResult(resultCsv);
