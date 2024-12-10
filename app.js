@@ -1,7 +1,7 @@
 document.getElementById('lookupForm').addEventListener('submit', function(event) {
     event.preventDefault();
 
-    const values = document.getElementById('values').value.split(',').map(v => v.trim());
+    const values = document.getElementById('values').value.split('\n').map(v => v.trim()).filter(v => v);
     const file = document.getElementById('csvFile').files[0];
 
     if (file) {
